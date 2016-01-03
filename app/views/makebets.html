@@ -1,0 +1,24 @@
+<div class="make-bets">
+  <div ng-repeat="bet in bets | limitTo:36">
+    <div>
+      <span>{{bet.match.home_team.name}}</span>
+      <span ng-repeat="i in getNumber(8) track by $index">
+        <input type="radio" name="home-goals-match-{{bet.match.match_number}}" id="home-goals-match-{{bet.match.match_number}}-{{$index}}" ng-value="{{$index}}" ng-model="$parent.bet.score.home" />
+        <label for="home-goals-match-{{bet.match.match_number}}-{{$index}}">{{$index}}</label>
+      </span>
+
+
+    </div>
+    <div>
+      <span>{{bet.match.away_team.name}}</span>
+      <span ng-repeat="i in getNumber(8) track by $index">
+        <input type="radio" name="away-goals-match-{{bet.match.match_number}}" id="away-goals-match-{{bet.match.match_number}}-{{$index}}" ng-value="{{$index}}" ng-model="$parent.bet.score.away"/>
+        <label for="away-goals-match-{{bet.match.match_number}}-{{$index}}">{{$index}}</label>
+      </span>
+    </div>
+    <br>
+  </div>
+  <button ng-click="saveBets()">Save bets</button>
+  <button ng-click="randomBets()">Random bets</button>
+</div>
+

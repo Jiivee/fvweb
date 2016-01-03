@@ -1,0 +1,25 @@
+<button ng-click="createUser('aaaa')">Create User A</button>
+<button ng-click="createUser('bbbb')">Create User B</button>
+<button ng-click="createUser('cccc')">Create User C</button>
+<button ng-click="createUser('dddd')">Create User D</button>
+<br>
+<br>
+<input placeholder="name" type="text" ng-model="tname"><button ng-click="createTournament()">Create Tournament</button>
+
+<div ng-repeat="user in users">
+    <input type="radio" name="selectedUser" ng-model="$parent.selectedUser" id="user{{$index}}" ng-value="user" />
+    <label for="user{{$index}}">{{user.name}}</label>
+</div>
+{{selectedUser}}
+
+
+<br>
+<br>
+<input placeholder="email" type="text" ng-model="useremail"><button ng-click="inviteUser()">Invite user</button>
+<div ng-repeat="tournament in tournaments">
+    <input type="radio" name="selectedTournament" ng-model="$parent.selectedTournament" id="tournament{{$index}}" ng-value="tournament" />
+    <label for="tournament{{$index}}">{{tournament.name}}, users:
+      <span ng-repeat="user in tournament.users">{{user.name}} </span>
+    </label>
+</div>
+{{selectedTournament}}

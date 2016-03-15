@@ -12,7 +12,7 @@ angular.module('futisveikkausApp')
 
       var request = $http({
         method: 'post',
-        url: 'http://localhost:3000/register',
+        url: 'http://localhost:3002/register',
         data: userData
       });
 

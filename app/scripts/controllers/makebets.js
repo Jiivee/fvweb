@@ -3,7 +3,7 @@
 angular.module('futisveikkausApp')
   .controller('MakeBetsCtrl', function ($scope, $http, auth) {
 
-    var userUrl = 'http://localhost:3000/users/' + auth.userId();
+    var userUrl = 'http://localhost:3002/users/' + auth.userId();
     $http.get(userUrl).success(function(data) {
       $scope.user = data;
       $scope.bets = $scope.user.tournaments[0].match_bets;
@@ -18,7 +18,7 @@ angular.module('futisveikkausApp')
     $scope.saveBets = function () {
       var request = $http({
         method: 'put',
-        url: 'http://localhost:3000/matchbets',
+        url: 'http://localhost:3002/matchbets',
         data: $scope.bets
       });
 

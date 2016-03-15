@@ -9,13 +9,13 @@
  */
 angular.module('futisveikkausApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $http.get('http://localhost:3000/matches').success(function(data) {
+    $http.get('http://localhost:3002/matches').success(function(data) {
       $scope.matches = data;
     });
 
     var request = $http({
         method: 'get',
-        url: 'http://localhost:3000/users'
+        url: 'http://localhost:3002/users'
       });
 
       request.success(
@@ -24,12 +24,12 @@ angular.module('futisveikkausApp')
         }
       );
 
-    $http.get('http://localhost:3000/tournaments').success(function(data) {
+    $http.get('http://localhost:3002/tournaments').success(function(data) {
       $scope.tournaments = data;
     });
 
     //GET USER
-    $http.get('http://localhost:3000/users').success(function(data) {
+    $http.get('http://localhost:3002/users').success(function(data) {
       $scope.user = data[0];
     });
 
@@ -42,7 +42,7 @@ angular.module('futisveikkausApp')
       var user = {name: name, email: name, password: name};
       var request = $http({
         method: 'post',
-        url: 'http://localhost:3000/users',
+        url: 'http://localhost:3002/users',
         data: user
       });
 
@@ -82,7 +82,7 @@ angular.module('futisveikkausApp')
         };
         var request = $http({
           method: 'post',
-          url: 'http://localhost:3000/tournaments',
+          url: 'http://localhost:3002/tournaments',
           data: tournament
         });
 
@@ -96,7 +96,7 @@ angular.module('futisveikkausApp')
 
 
     //GET TOURNAMENT
-    $http.get('http://localhost:3000/tournaments').success(function(data) {
+    $http.get('http://localhost:3002/tournaments').success(function(data) {
       $scope.tournament = data[0];
     });
 
@@ -109,7 +109,7 @@ angular.module('futisveikkausApp')
         };
         var request = $http({
           method: 'put',
-          url: 'http://localhost:3000/tournaments/invite-user',
+          url: 'http://localhost:3002/tournaments/invite-user',
           data: invite
         });
 

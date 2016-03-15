@@ -48,7 +48,7 @@ angular.module('futisveikkausApp')
 
       var request = $http({
         method: 'post',
-        url: 'http://localhost:3000/authenticate',
+        url: 'http://localhost:3002/authenticate',
         data: userData
       });
 
